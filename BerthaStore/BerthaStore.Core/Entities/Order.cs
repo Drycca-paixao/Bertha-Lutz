@@ -2,7 +2,7 @@
 
 namespace BerthaStore.Core.Entities
 {
-    internal class Order
+    public class Order
     {
         public int idOrder { get ; set; }
         public int idClient { get; set; }

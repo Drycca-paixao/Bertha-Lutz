@@ -8,5 +8,6 @@ namespace BerthaStore.Application.Models.UpdateOrderStatus
 {
     internal class UpdateOrderStatusRequest
     {
+        public int IdOrder { get; set; }
     }
 }

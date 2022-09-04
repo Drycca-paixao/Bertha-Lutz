@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BerthaStore.Application.Models.UpdateItemOrder
 {
-    internal class UpdateItemOrderResponse
+    public class UpdateItemOrderResponse
     {
     }
 }
