@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace BerthaStore.Infra.Repositories
 {
-    public class OrderRepository : IOrderRepository
+    public class ProductRepository : IProductRepository
     {
-        public Task<IEnumerable<Order>> GetAll()
+        public Task<IEnumerable<Product>> GetAll()
         {
             throw new System.NotImplementedException();
         }

@@ -1,4 +1,4 @@
-﻿using BerthaStore.Application.Models.AddClient;
+﻿using BerthaStore.Application.Models.NewClient;
 using BerthaStore.Application.Models.SearchClient;
 using BerthaStore.Application.Models.UpdateClient;
 using BerthaStore.Application.UseCases;
@@ -11,24 +11,24 @@ namespace BerthaStore.API.Controllers
     [ApiController]
     public class ClientController : ControllerBase
     {
-        private readonly IUseCaseAsync<AddClientRequest, AddClientResponse> _addClientCaseAsync;
+        private readonly IUseCaseAsync<NewClientRequest, NewClientResponse> _newClientCaseAsync;
         private readonly IUseCaseAsync<UpdateClientRequest, UpdateClientResponse> _updateClientCaseAsync;
         private readonly IUseCaseAsync<SearchClientRequest, SearchClientResponse> _searchClientCaseAsync;
 
-        public ClientController(IUseCaseAsync<AddClientRequest, AddClientResponse> addClientCaseAsync,
+        public ClientController(IUseCaseAsync<NewClientRequest, NewClientResponse> newClientCaseAsync,
         IUseCaseAsync<UpdateClientRequest, UpdateClientResponse> updateClientCaseAsync,
         IUseCaseAsync<SearchClientRequest, SearchClientResponse> searchClientCaseAsync)
         {
-            _addClientCaseAsync = addClientCaseAsync;
+            _newClientCaseAsync = newClientCaseAsync;
             _updateClientCaseAsync = updateClientCaseAsync;
             _searchClientCaseAsync = searchClientCaseAsync;
         }
 
         //Inserir()
         [HttpPost]
-        public async Task<ActionResult<AddClientResponse>> Post([FromBody] AddClientRequest request)
+        public async Task<ActionResult<NewClientResponse>> Post([FromBody] NewClientRequest request)
         {
-            return await _addClientCaseAsync.ExecuteAsync(request);
+            return await _newClientCaseAsync.ExecuteAsync(request);
         }
 
         //Atualizar()

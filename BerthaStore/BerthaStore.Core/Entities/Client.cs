@@ -10,7 +10,7 @@ namespace BerthaStore.Core.Entities
         public string Email { get; set; }
         public string Cpf { get; set; }
         public string Password { get; set; }
-        public DateTime created { get; set; }
+        public DateTime Created { get; set; }
         public List<Order> Orders { get; set; }
     }
 }

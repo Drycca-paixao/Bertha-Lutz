@@ -1,15 +1,16 @@
 ﻿using BerthaStore.Core.Entities;
 using BerthaStore.Core.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BerthaStore.Infra.Repositories
 {
-    public class OrderRepository : IOrderRepository
+    public class ClientRepository : IClientRepository
     {
-        public Task<IEnumerable<Order>> GetAll()
+        public Task<IEnumerable<Client>> GetAll()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
