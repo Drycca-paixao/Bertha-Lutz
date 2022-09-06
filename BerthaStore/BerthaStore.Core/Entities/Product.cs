@@ -13,6 +13,6 @@ namespace BerthaStore.Core.Entities
         public string Description { get; set; }
         public float Price { get; set; }
         public int Storage { get; set; }
-        public DateTime created { get; set; }
+        public DateTime Created { get; set; }
     }
 }
