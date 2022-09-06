@@ -1,16 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace BerthaStore.Core.Entities
 {
     public class Order
     {
-        public int idOrder { get ; set; }
-        public int idClient { get; set; }
-        public string paymentType { get; set; }
-        public DateTime shippingDate { get; set; }
-        public float totalPrice { get; set; }
-        public DateTime created { get; set; }
-        public string status { get; set; }
-
+        public int IdOrder { get; set; }
+        public int IdClient { get; set; }
+        public Client Client { get; set; }
+        public string PaymentType { get; set; }
+        public DateTime ShippingDate { get; set; }
+        public float TotalPrice { get; set; }
+        public DateTime Created { get; set; }
+        public string Status { get; set; }
+        public List<ItemOrder> ItemOrders { get; set; }
     }
 }
