@@ -6,7 +6,7 @@ namespace BerthaStore.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ItemOderController : ControllerBase
+    public class ItemOrderController : ControllerBase
     {
 
     }
