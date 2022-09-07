@@ -8,6 +8,6 @@ namespace BerthaStore.Application.Models.RemoveItemOrder
 {
     public class RemoveItemOrderRequest
     {
-        public int Id { get; set; }
+        public int IdItemOrder { get; set; }
     }
 }

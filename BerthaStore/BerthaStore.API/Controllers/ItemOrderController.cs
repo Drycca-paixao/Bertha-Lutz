@@ -44,7 +44,7 @@ namespace BerthaStore.API.Controllers
         [HttpDelete]
         public async Task<ActionResult<RemoveItemOrderResponse>> Delete([FromRoute] int id)
         {
-            return await _deleteItemOrderCaseAsync.ExecuteAsync(new RemoveItemOrderRequest() { Id = id });
+            return await _deleteItemOrderCaseAsync.ExecuteAsync(new RemoveItemOrderRequest() { IdItemOrder = id });
         }
 
     }
