@@ -11,6 +11,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BerthaStore.Application\BerthaStore.Application.csproj" />
+    <ProjectReference Include="..\BerthaStore.Core\BerthaStore.Core.csproj" />
+    <ProjectReference Include="..\BerthaStore.Infra\BerthaStore.Infra.csproj" />
   </ItemGroup>
 
 </Project>
