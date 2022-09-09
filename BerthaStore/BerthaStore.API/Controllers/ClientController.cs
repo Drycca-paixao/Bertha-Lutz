@@ -42,7 +42,7 @@ namespace BerthaStore.API.Controllers
         [HttpGet]
         public async Task<ActionResult<SearchClientResponse>> Get([FromQuery] int id)
         {
-            return await _searchClientCaseAsync.ExecuteAsync(new SearchClientRequest() {Id = id});
+            return await _searchClientCaseAsync.ExecuteAsync(new SearchClientRequest() {IdClient = id});
         }
     }
 }

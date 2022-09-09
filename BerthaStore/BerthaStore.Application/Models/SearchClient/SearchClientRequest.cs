@@ -8,6 +8,6 @@ namespace BerthaStore.Application.Models.SearchClient
 {
     public class SearchClientRequest
     {
-        public int Id { get; set; }
+        public int IdClient { get; set; }
     }
 }
