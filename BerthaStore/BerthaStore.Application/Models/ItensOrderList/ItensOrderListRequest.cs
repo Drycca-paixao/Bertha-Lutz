@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BerthaStore.Application.Models.AddClient
+namespace BerthaStore.Application.Models.ItensOrderList
 {
-    public class AddClientResponse
+    public class ItensOrderListRequest
     {
+        public int IdOrder { get; set; }
     }
 }

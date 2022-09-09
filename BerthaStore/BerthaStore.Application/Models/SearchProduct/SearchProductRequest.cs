@@ -8,6 +8,6 @@ namespace BerthaStore.Application.Models.SearchProduct
 {
     public class SearchProductRequest
     {
-        public int Id { get; set; }
+        public int IdProduct { get; set; }
     }
 }
