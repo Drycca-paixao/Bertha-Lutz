@@ -1,5 +1,4 @@
-﻿using BerthaStore.Application.Models.AddItemOrder;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace BerthaStore.Application.Models.NewOrder

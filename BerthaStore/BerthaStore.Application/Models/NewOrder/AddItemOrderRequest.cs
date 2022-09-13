@@ -1,4 +1,4 @@
-﻿namespace BerthaStore.Application.Models.AddItemOrder
+﻿namespace BerthaStore.Application.Models.NewOrder
 {
     public class AddItemOrderRequest
     {

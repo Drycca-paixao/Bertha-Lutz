@@ -8,5 +8,6 @@ namespace BerthaStore.Application.Models.SearchClient
 {
     public class SearchClientResponse
     {
+
     }
 }

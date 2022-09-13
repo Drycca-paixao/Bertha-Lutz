@@ -16,11 +16,11 @@ namespace BerthaStore.Application.Mappings
                 .ForMember(dest => dest.Price, fonte => fonte.MapFrom(src => src.Price))
                 .ForMember(dest => dest.Storage, fonte => fonte.MapFrom(src => src.Storage));
 
-            CreateMap<NewClientRequest, Client>()
-                .ForMember(dest => dest.Name, fonte => fonte.MapFrom(src => src.Name))
-                .ForMember(dest => dest.Email, fonte => fonte.MapFrom(src => src.Email))
-                .ForMember(dest => dest.Cpf, fonte => fonte.MapFrom(src => src.Cpf))
-                .ForMember(dest => dest.Password, fonte => fonte.MapFrom(src => src.Password));
+ //           CreateMap<NewClientRequest, Client>()
+ //               .ForMember(dest => dest.Name, fonte => fonte.MapFrom(src => src.Name))
+ //               .ForMember(dest => dest.Email, fonte => fonte.MapFrom(src => src.Email))
+ //               .ForMember(dest => dest.Cpf, fonte => fonte.MapFrom(src => src.Cpf))
+ //               .ForMember(dest => dest.Password, fonte => fonte.MapFrom(src => src.Password));
 
             CreateMap<NewOrderRequest, Order>()
                 .ForMember(dest => dest.PaymentType, fonte => fonte.MapFrom(src => src.PaymentType));

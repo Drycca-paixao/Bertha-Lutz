@@ -22,7 +22,7 @@ namespace BerthaStore.Application.UseCases
         public async Task<NewOrderResponse> ExecuteAsync(NewOrderRequest request)
         {
             if (request == null)
-                throw new Exception("NewOrderRequest está nulo.");
+                throw new Exception("NewOrderRequest is null.");
 
             var order = _mapper.Map<Order>(request);
 

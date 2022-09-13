@@ -4,10 +4,11 @@ using AutoMapper;
 using BerthaStore.Application.Models.NewProduct;
 using BerthaStore.Core.Interfaces;
 using BerthaStore.Core.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BerthaStore.Application.UseCases
 {
-    public class NewProductUseCase : IUseCaseAsync<NewProductRequest, NewProductResponse>
+    public class NewProductUseCase : IUseCaseAsync<NewProductRequest, IActionResult>
     {
         private readonly IProductRepository _repository;
         private readonly IMapper _mapper;
@@ -19,16 +20,16 @@ namespace BerthaStore.Application.UseCases
             _mapper = mapper;
         }
 
-        public async Task<NewProductResponse> ExecuteAsync(NewProductRequest request)
+        public async Task<IActionResult> ExecuteAsync(NewProductRequest request)
         {
             if (request == null)
-                throw new Exception("NewProductRequest está nulo.");
+                return new BadRequestResult();
 
             var product = _mapper.Map<Product>(request);
 
             await _repository.Inserir(product);
 
-            return new NewProductResponse() { };
+            return new OkResult();
         }
     }
 }

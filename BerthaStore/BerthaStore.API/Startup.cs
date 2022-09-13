@@ -17,6 +17,10 @@ using BerthaStore.Application.Models.SearchClient;
 using BerthaStore.Application.Models.NewProduct;
 using BerthaStore.Application.Models.UpdateProduct;
 using BerthaStore.Application.Models.SearchProduct;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using BerthaStore.Infra.Database;
 
 namespace BerthaStore.API
 {
@@ -37,19 +41,25 @@ namespace BerthaStore.API
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IItemOrderRepository, ItemOrderRepository>();
             
-            services.AddTransient<IUseCaseAsync<NewOrderRequest, NewOrderResponse>, NewOrderUseCase>();
-            services.AddTransient<IUseCaseAsync<UpdateOrderRequest, UpdateOrderResponse>, UpdateOrderUseCase>();
-            services.AddTransient<IUseCaseAsync<SearchOrderRequest, SearchOrderResponse>, SearchOrderUseCase>();
+            //services.AddTransient<IUseCaseAsync<NewOrderRequest, IActionResult>, NewOrderUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateOrderRequest, UpdateOrderResponse>, UpdateOrderUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchOrderRequest, SearchOrderResponse>, SearchOrderUseCase>();
 
-            services.AddTransient<IUseCaseAsync<NewClientRequest, NewClientResponse>, NewClientUseCase>();
-            services.AddTransient<IUseCaseAsync<UpdateClientRequest, UpdateClientResponse>, UpdateClientUseCase>();
-            services.AddTransient<IUseCaseAsync<SearchClientRequest, SearchClientResponse>, SearchClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<NewClientRequest, NewClientResponse>, NewClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateClientRequest, UpdateClientResponse>, UpdateClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchClientRequest, SearchClientResponse>, SearchClientUseCase>();
 
-            services.AddTransient<IUseCaseAsync<NewProductRequest, NewProductResponse>, NewProductUseCase>();
-            services.AddTransient<IUseCaseAsync<UpdateProductRequest, UpdateProductResponse>, UpdateProductUseCase>();
-            services.AddTransient<IUseCaseAsync<SearchProductRequest, SearchProductResponse>, SearchProductUseCase>();
+            services.AddTransient<IUseCaseAsync<NewProductRequest, IActionResult>, NewProductUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateProductRequest, UpdateProductResponse>, UpdateProductUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchProductRequest, SearchProductResponse>, SearchProductUseCase>();
 
             services.AddAutoMapper(typeof(MappingProfile));
+
+            services.AddDbContext<ApplicationContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
+            );
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
