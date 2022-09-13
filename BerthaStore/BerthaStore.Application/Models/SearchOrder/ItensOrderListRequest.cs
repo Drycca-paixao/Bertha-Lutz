@@ -8,6 +8,5 @@ namespace BerthaStore.Application.Models.SearchOrder
 {
     public class ItensOrderListRequest
     {
-        public int IdOrder { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace BerthaStore.Infra.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task Inserir(Order order)
+        public Task Add(Order order)
         {
             throw new System.NotImplementedException();
         }

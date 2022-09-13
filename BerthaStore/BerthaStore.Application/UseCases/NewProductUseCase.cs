@@ -1,5 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using BerthaStore.Application.Models.NewProduct;
 using BerthaStore.Core.Interfaces;
@@ -27,7 +26,7 @@ namespace BerthaStore.Application.UseCases
 
             var product = _mapper.Map<Product>(request);
 
-            await _repository.Inserir(product);
+            await _repository.Add(product);
 
             return new OkResult();
         }
