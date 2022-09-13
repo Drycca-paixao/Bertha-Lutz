@@ -9,5 +9,9 @@ namespace BerthaStore.Application.Models.UpdateOrder
     public class UpdateItemOrderRequest
     {
         public int IdItemOrder { get; set; }
+        public int IdOrder { get; set; }
+        public int IdProduct { get; set; }
+        public int Quantity { get; set; }
+        public int UnitaryPrice { get; set; }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using AutoMapper;
 using BerthaStore.Application.Models.NewOrder;
 using BerthaStore.Core.Interfaces;
 using BerthaStore.Core.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BerthaStore.Application.UseCases
 {
-    public class NewOrderUseCase : IUseCaseAsync<NewOrderRequest, NewOrderResponse>
+    public class NewOrderUseCase : IUseCaseAsync<NewOrderRequest, IActionResult>
     {
         private readonly IOrderRepository _repository;
         private readonly IMapper _mapper;
@@ -19,16 +19,16 @@ namespace BerthaStore.Application.UseCases
             _mapper = mapper;
         }
 
-        public async Task<NewOrderResponse> ExecuteAsync(NewOrderRequest request)
+        public async Task<IActionResult> ExecuteAsync(NewOrderRequest request)
         {
             if (request == null)
-                throw new Exception("NewOrderRequest is null.");
+                return new BadRequestResult();
 
             var order = _mapper.Map<Order>(request);
 
-            await _repository.Inserir(order);
+            await _repository.Add(order);
 
-            return new NewOrderResponse() { };
+            return new OkResult();
         }
     }
 }

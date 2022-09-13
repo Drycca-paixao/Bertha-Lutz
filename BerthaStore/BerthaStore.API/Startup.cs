@@ -41,17 +41,17 @@ namespace BerthaStore.API
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IItemOrderRepository, ItemOrderRepository>();
             
-            //services.AddTransient<IUseCaseAsync<NewOrderRequest, IActionResult>, NewOrderUseCase>();
-            //services.AddTransient<IUseCaseAsync<UpdateOrderRequest, UpdateOrderResponse>, UpdateOrderUseCase>();
-            //services.AddTransient<IUseCaseAsync<SearchOrderRequest, SearchOrderResponse>, SearchOrderUseCase>();
+            services.AddTransient<IUseCaseAsync<NewOrderRequest, IActionResult>, NewOrderUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateOrderRequest, IActionResult>, UpdateOrderUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchOrderRequest, IActionResult>, SearchOrderUseCase>();
 
-            //services.AddTransient<IUseCaseAsync<NewClientRequest, NewClientResponse>, NewClientUseCase>();
-            //services.AddTransient<IUseCaseAsync<UpdateClientRequest, UpdateClientResponse>, UpdateClientUseCase>();
-            //services.AddTransient<IUseCaseAsync<SearchClientRequest, SearchClientResponse>, SearchClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<NewClientRequest, IActionResult>, NewClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateClientRequest, IActionResult>, UpdateClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchClientRequest, IActionResult>, SearchClientUseCase>();
 
             services.AddTransient<IUseCaseAsync<NewProductRequest, IActionResult>, NewProductUseCase>();
-            //services.AddTransient<IUseCaseAsync<UpdateProductRequest, UpdateProductResponse>, UpdateProductUseCase>();
-            //services.AddTransient<IUseCaseAsync<SearchProductRequest, SearchProductResponse>, SearchProductUseCase>();
+            services.AddTransient<IUseCaseAsync<UpdateProductRequest, IActionResult>, UpdateProductUseCase>();
+            services.AddTransient<IUseCaseAsync<SearchProductRequest, IActionResult>, SearchProductUseCase>();
 
             services.AddAutoMapper(typeof(MappingProfile));
 
@@ -68,7 +68,7 @@ namespace BerthaStore.API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ApplicationContext context)
         {
             if (env.IsDevelopment())
             {
@@ -76,6 +76,8 @@ namespace BerthaStore.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "BerthaStore.API v1"));
             }
+
+            context.Database.Migrate();
 
             app.UseHttpsRedirection();
 

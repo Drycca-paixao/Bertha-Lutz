@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace BerthaStore.Application.Models.UpdateOrder
 {
     public class UpdateOrderRequest
     {
         public int IdOrder { get; set; }
+        public int IdClient { get; set; }
+        public string PaymentType { get; set; }
+        public List<UpdateItemOrderRequest> UpdateItemOrderRequest { get; set; }
     }
 }

@@ -12,12 +12,12 @@ namespace BerthaStore.API.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IUseCaseAsync<NewOrderRequest, IActionResult> _newOrderCaseAsync;
-        private readonly IUseCaseAsync<UpdateOrderRequest, UpdateOrderResponse> _updateOrderCaseAsync;
-        private readonly IUseCaseAsync<SearchOrderRequest, SearchOrderResponse> _searchOrderCaseAsync;
+        private readonly IUseCaseAsync<UpdateOrderRequest, IActionResult> _updateOrderCaseAsync;
+        private readonly IUseCaseAsync<SearchOrderRequest, IActionResult> _searchOrderCaseAsync;
 
         public OrderController(IUseCaseAsync<NewOrderRequest, IActionResult> newOrderCaseAsync,
-        IUseCaseAsync<UpdateOrderRequest, UpdateOrderResponse> updateOrderCaseAsync,
-        IUseCaseAsync<SearchOrderRequest, SearchOrderResponse> searchOrderCaseAsync)
+        IUseCaseAsync<UpdateOrderRequest, IActionResult> updateOrderCaseAsync,
+        IUseCaseAsync<SearchOrderRequest, IActionResult> searchOrderCaseAsync)
         {
             _newOrderCaseAsync = newOrderCaseAsync;
             _updateOrderCaseAsync = updateOrderCaseAsync;
@@ -33,14 +33,14 @@ namespace BerthaStore.API.Controllers
 
         //Atualizar()
         [HttpPut]
-        public async Task<UpdateOrderResponse> Put([FromBody] UpdateOrderRequest request)
+        public async Task<IActionResult> Put([FromBody] UpdateOrderRequest request)
         {
             return await _updateOrderCaseAsync.ExecuteAsync(request);
         }
 
         //Buscar()
         [HttpGet]
-        public async Task<SearchOrderResponse> Get([FromQuery] int id)
+        public async Task<IActionResult> Get([FromQuery] int id)
         {
             return await _searchOrderCaseAsync.ExecuteAsync(new SearchOrderRequest() { IdOrder = id });
         }
