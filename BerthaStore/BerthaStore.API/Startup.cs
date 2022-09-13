@@ -1,17 +1,26 @@
-using BerthaStore.Application.Mappings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BerthaStore.Application.Mappings;
+using BerthaStore.Core.Interfaces;
+using BerthaStore.Infra.Repositories;
+using BerthaStore.Application.UseCases;
+using BerthaStore.Application.Models.NewOrder;
+using BerthaStore.Application.Models.UpdateOrder;
+using BerthaStore.Application.Models.SearchOrder;
+using BerthaStore.Application.Models.NewClient;
+using BerthaStore.Application.Models.UpdateClient;
+using BerthaStore.Application.Models.SearchClient;
+using BerthaStore.Application.Models.NewProduct;
+using BerthaStore.Application.Models.UpdateProduct;
+using BerthaStore.Application.Models.SearchProduct;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using BerthaStore.Infra.Database;
 
 namespace BerthaStore.API
 {
@@ -27,8 +36,30 @@ namespace BerthaStore.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IClientRepository, ClientRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
+            services.AddTransient<IItemOrderRepository, ItemOrderRepository>();
+            
+            //services.AddTransient<IUseCaseAsync<NewOrderRequest, IActionResult>, NewOrderUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateOrderRequest, UpdateOrderResponse>, UpdateOrderUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchOrderRequest, SearchOrderResponse>, SearchOrderUseCase>();
+
+            //services.AddTransient<IUseCaseAsync<NewClientRequest, NewClientResponse>, NewClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateClientRequest, UpdateClientResponse>, UpdateClientUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchClientRequest, SearchClientResponse>, SearchClientUseCase>();
+
+            services.AddTransient<IUseCaseAsync<NewProductRequest, IActionResult>, NewProductUseCase>();
+            //services.AddTransient<IUseCaseAsync<UpdateProductRequest, UpdateProductResponse>, UpdateProductUseCase>();
+            //services.AddTransient<IUseCaseAsync<SearchProductRequest, SearchProductResponse>, SearchProductUseCase>();
 
             services.AddAutoMapper(typeof(MappingProfile));
+
+            services.AddDbContext<ApplicationContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            .UseLoggerFactory(LoggerFactory.Create(builder => builder.AddConsole()))
+            );
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {

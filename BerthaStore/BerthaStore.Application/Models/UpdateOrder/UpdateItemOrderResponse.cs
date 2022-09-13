@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BerthaStore.Application.Models.AddItemOrder
+namespace BerthaStore.Application.Models.UpdateOrder
 {
-    public class AddItemOrderResponse
+    public class UpdateItemOrderResponse
     {
     }
 }

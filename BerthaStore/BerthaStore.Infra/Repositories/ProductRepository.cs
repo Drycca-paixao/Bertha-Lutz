@@ -11,5 +11,10 @@ namespace BerthaStore.Infra.Repositories
         {
             throw new System.NotImplementedException();
         }
+
+        public Task Inserir(Product product)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

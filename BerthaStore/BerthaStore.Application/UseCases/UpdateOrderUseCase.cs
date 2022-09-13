@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BerthaStore.Application.UseCases
 {
-    internal class UpdateOrderUseCase
+    public class UpdateOrderUseCase
     {
     }
 }

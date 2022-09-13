@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BerthaStore.Application.Models.UpdateItemOrder
+namespace BerthaStore.Application.Models.UpdateOrder
 {
     public class UpdateItemOrderRequest
     {

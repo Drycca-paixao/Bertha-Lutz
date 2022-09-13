@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BerthaStore.Application.Models.ItensOrderList
+namespace BerthaStore.Application.Models.SearchOrder
 {
     public class ItensOrderListResponse
     {
