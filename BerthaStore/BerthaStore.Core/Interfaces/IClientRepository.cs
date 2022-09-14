@@ -6,5 +6,6 @@ namespace BerthaStore.Core.Interfaces
 {
     public interface IClientRepository : IRepository<Client>
     {
+        Task New(Client client);
     }
 }

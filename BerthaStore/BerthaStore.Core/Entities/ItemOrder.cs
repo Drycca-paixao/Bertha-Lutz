@@ -14,6 +14,6 @@ namespace BerthaStore.Core.Entities
         public int IdProduct { get; set; }
         public Product Product { get; set; }
         public int Quantity { get; set; }
-        public float UnitaryPrice { get; set; }
+        public decimal UnitaryPrice { get; set; }
     }
 }

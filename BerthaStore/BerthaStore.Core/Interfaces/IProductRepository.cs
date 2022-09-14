@@ -6,6 +6,6 @@ namespace BerthaStore.Core.Interfaces
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Task Add(Product product);
+        Task New(Product product);
     }
 }

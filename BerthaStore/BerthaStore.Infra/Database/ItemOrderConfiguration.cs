@@ -13,7 +13,21 @@ namespace BerthaStore.Infra.Database
     {
         public void Configure(EntityTypeBuilder<ItemOrder> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("ItemOrder");
+            builder.HasKey(pk => pk.IdItemOrder);
+
+            builder.Property(p => p.Quantity)
+                .HasColumnType("INT");
+            builder.Property(p => p.UnitaryPrice)
+                .HasColumnType("DECIMAL(18, 2)");
+
+            builder.HasOne(fk => fk.Order)
+                .WithMany(fk => fk.ItemOrders)
+                .HasForeignKey(fk => fk.IdOrder);
+
+            builder.HasOne(fk => fk.Product)
+                .WithMany(fk => fk.ItemOrders)
+                .HasForeignKey(fk => fk.IdProduct);
         }
     }
 }

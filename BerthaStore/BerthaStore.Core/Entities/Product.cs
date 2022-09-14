@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BerthaStore.Core.Entities
 {
@@ -11,8 +8,9 @@ namespace BerthaStore.Core.Entities
         public int IdProduct { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public float Price { get; set; }
+        public decimal Price { get; set; }
         public int Storage { get; set; }
         public DateTime Created { get; set; }
+        public List<ItemOrder> ItemOrders { get; set; }
     }
 }

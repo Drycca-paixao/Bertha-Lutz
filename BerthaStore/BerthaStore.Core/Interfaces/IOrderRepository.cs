@@ -6,6 +6,6 @@ namespace BerthaStore.Core.Interfaces
 {
     public interface IOrderRepository : IRepository<Order>
     {
-        Task Add(Order order);
+        Task New(Order order);
     }
 }
