@@ -12,7 +12,7 @@ namespace BerthaStore.Infra.Repositories
             throw new System.NotImplementedException();
         }
 
-        public Task Add(Client client)
+        public Task New(Client client)
         {
             throw new System.NotImplementedException();
         }

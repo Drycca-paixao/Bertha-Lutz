@@ -26,7 +26,7 @@ namespace BerthaStore.Application.UseCases
 
             var product = _mapper.Map<Product>(request);
 
-            await _repository.Add(product);
+            await _repository.New(product);
 
             return new OkResult();
         }
