@@ -20,3 +20,19 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 ## Materiais de Apoio
 
 - [Asana](https://asana.com/pt) para criar uma lista de tarefas;
+
+---
+
+## Comandos Migrations
+
+Cria o Migrations (é necessário executar na raiz da Solution — **não na Infra**):
+
+```
+dotnet ef --startup-project ./BerthaStore.API/BerthaStore.API.csproj  migrations add ProductTable -p ./BerthaStore.Infra/BerthaStore.Infra.csproj
+```
+
+Atualiza a tabela do Migrations (é necessário executar na raiz da Solution — **não na Infra**):
+
+```
+dotnet ef database update --project ./BerthaStore.API
+```
