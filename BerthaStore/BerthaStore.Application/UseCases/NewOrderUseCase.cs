@@ -4,6 +4,7 @@ using BerthaStore.Application.Models.NewOrder;
 using BerthaStore.Core.Interfaces;
 using BerthaStore.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BerthaStore.Application.UseCases
 {
@@ -21,6 +22,18 @@ namespace BerthaStore.Application.UseCases
 
         public async Task<IActionResult> ExecuteAsync(NewOrderRequest request)
         {
+            var validator = new NewOrderRequestValidator();
+            var validatorResults = validator.Validate(request);
+
+            if (!validatorResults.IsValid)
+            {
+                var validatorErrors = string.Empty;
+                foreach (var error in validatorResults.Errors)
+                    validatorErrors += error.ErrorMessage;
+
+                throw new Exception(validatorErrors);
+            }
+
             if (request == null)
                 return new BadRequestResult();
 
