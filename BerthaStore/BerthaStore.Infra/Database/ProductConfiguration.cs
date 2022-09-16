@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using BerthaStore.Core.Entities;
+﻿using BerthaStore.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System.Threading.Tasks;
 
 namespace BerthaStore.Infra.Database
 {
@@ -13,7 +8,22 @@ namespace BerthaStore.Infra.Database
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            throw new NotImplementedException();
+            builder.ToTable("ProductTable");
+            builder.HasKey(pk => pk.IdProduct);
+
+            builder.Property(p => p.Name)
+                .HasColumnType("VARCHAR(48)")
+                .IsRequired();
+            builder.Property(p => p.Description)
+                .HasColumnType("VARCHAR(248)");
+            builder.Property(p => p.Price)
+                .HasColumnType("DECIMAL(18, 2)")
+                .IsRequired();
+            builder.Property(p => p.Storage)
+                .HasColumnType("INT")
+                .IsRequired();
+            builder.Property(p => p.Created)
+                .HasColumnType("DATETIME");
         }
     }
 }

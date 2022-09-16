@@ -11,6 +11,6 @@ namespace BerthaStore.Core.Entities
         public decimal Price { get; set; }
         public int Storage { get; set; }
         public DateTime Created { get; set; }
-        public List<ItemOrder> ItemOrders { get; set; }
+        public List<ItemOrder> ItensOrder { get; set; }
     }
 }
