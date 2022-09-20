@@ -6,7 +6,7 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 
 > A Juntos Somos Mais está construindo uma nova plataforma de e-commerce e precisa deuma API para gerenciar os pedidos, catálogode produtos e cadastro de usuário. Utilize suas novas habilidades adquiridas na academia! O sistema deve permitir cadastro de novos clientes, incluindo dados pessoais e dados para contato, além de ser possível fazer a compra de produtos e associar a um pedido para o cliente cadastrado, e o histórico de pedido deve ser consultado.
 
-## ENIAC Squad
+## BERTHA LUTZ Squad
 
 **Mentora:** Mariana Ribeiro
 
