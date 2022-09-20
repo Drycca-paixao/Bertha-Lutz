@@ -17,6 +17,14 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 - Raphaela Joana Vieira de Sousa
 - Tamires Cristina de Souza
 
+## Pacotes e ferramentas
+
+- EFCore
+- Fluent Validation
+- AutoMapper
+- Swagger
+- SQL Server
+
 ## Materiais de Apoio
 
 - [Asana](https://asana.com/pt) para criar uma lista de tarefas;
