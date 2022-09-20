@@ -28,6 +28,7 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 ## Materiais de Apoio
 
 - [Asana](https://asana.com/pt) para criar uma lista de tarefas;
+- [Visual Paradigm](https://online.visual-paradigm.com) para criar o diagrama de classes;
 
 ---
 
