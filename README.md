@@ -68,5 +68,5 @@ CREATE DATABASE [BerthaLutzStore];
 > é necessário executar na pasta raiz onde se encontram todos os projetos da solution.
 
 ```
-dotnet ef --startup-project ./BerthaLutzStore.API/BerthaLutzStore.API.csproj  migrations add AllTables -p ./BerthaLutzStore.Infra/BerthaLutzStore.Infra.csproj
+dotnet ef --startup-project ./BerthaLutzStore.API/BerthaLutzStore.API.csproj  migrations add AllTable -p ./BerthaLutzStore.Infra/BerthaLutzStore.Infra.csproj
 ```
