@@ -37,8 +37,18 @@ namespace BerthaLutzStore.Infra.Repositories
                 .Users
                 .Include(x => x.Orders)
                 .Where(x => x.IdUser == id)
+                .AsNoTracking()
                 .FirstOrDefaultAsync();
         }
+
+        public async Task<User> SearchAux(int id)
+        {
+            return await _context
+                .Users
+                .Where(x => x.IdUser == id)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<IEnumerable<User>> SearchAll()
         {
             return await _context

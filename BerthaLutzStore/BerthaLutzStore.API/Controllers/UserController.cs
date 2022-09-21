@@ -17,14 +17,14 @@ namespace BerthaStore.API.Controllers
         private readonly IUseCaseAsync<NewUserRequest, IActionResult> _newUserCaseAsync;
         private readonly IUseCaseAsync<SearchUserRequest, IActionResult> _searchUserCaseAsync;
         private readonly IUseCaseAsync<UpdateUserRequest, IActionResult> _updateUserCaseAsync;
-        private readonly IUseCaseAsync<int, IActionResult> _deleteUserCaseAsync;
+        private readonly DeleteUserUseCase _deleteUserCaseAsync;
         private readonly IUseCaseAsync<SearchAllUsersRequest, IActionResult> _searchAllUsersCaseAsync;
 
         public UserController(
             IUseCaseAsync<NewUserRequest, IActionResult> newUserCaseAsync,
             IUseCaseAsync<SearchUserRequest, IActionResult> searchUserCaseAsync,
             IUseCaseAsync<UpdateUserRequest, IActionResult> updateUserCaseAsync,
-            IUseCaseAsync<int, IActionResult> deleteUserCaseAsync,
+            DeleteUserUseCase deleteUserCaseAsync,
             IUseCaseAsync<SearchAllUsersRequest, IActionResult> searchAllUsersCaseAsync)
         {
             _newUserCaseAsync = newUserCaseAsync;
@@ -59,10 +59,7 @@ namespace BerthaStore.API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get([FromQuery] SearchUserRequest request)
         {
-            var userId = await _searchUserCaseAsync.ExecuteAsync(request);
-            if (userId == null)
-                return new NotFoundObjectResult("Id not found");
-            return new OkObjectResult(userId);
+            return await _searchUserCaseAsync.ExecuteAsync(request);
         }
 
         //Search All Users

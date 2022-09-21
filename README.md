@@ -17,6 +17,24 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 - Raphaela Joana Vieira de Sousa
 - Tamires Cristina de Souza
 
+## Endpoints
+
+- GET/api/Order
+- PUT/api/Order
+- GET/api/Order
+- DELETE/api/Order/{orderId}
+- GET/api/Order/ListAll
+- GET/api/Product
+- PUT/api/Product
+- GET/api/Product
+- DELETE/api/Product/{productId}
+- GET/api/Product/ListAll
+- GET/api/User
+- PUT/api/User
+- GET/api/User
+- DELETE/api/User/{userId}
+- GET/api/User/ListAll
+
 ## Pacotes e ferramentas
 
 - EFCore
@@ -32,16 +50,23 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 
 ---
 
-## Comandos Migrations
+## Conexão com o Banco de Dados
 
-Cria o Migrations (é necessário executar na raiz da Solution — **não na Infra**):
+Por questões de compatibilidade, são necessários alguns passos para que a API tenha acesso ao banco de dados:
+
+1. É necessário ter instalado o SQL Server.
+2. Ao se conectar no banco, escolha a opção `Windows Autentication` em "Authentication".
+3. Caso seu "Server name" seja diferente de `localhost\SQLEXPRESS`, será necessário trocar esta expressão pelo seu *Server name* no arquivo "appsettings.json".
+4. Uma vez conectado, crie uma nova database chamada `BerthaLutzStore` através do comando:
+
+```sql
+CREATE DATABASE [BerthaLutzStore];
+```
+
+5. Pode haver conflitos com relação à data do arquivo de migração, portanto, se necessário, execute novamente o comando abaixo:
+
+> é necessário executar na pasta raiz onde se encontram todos os projetos da solution.
 
 ```
-dotnet ef --startup-project ./BerthaStore.API/BerthaStore.API.csproj  migrations add ProductTable -p ./BerthaStore.Infra/BerthaStore.Infra.csproj
-```
-
-Atualiza a tabela do Migrations (é necessário executar na raiz da Solution — **não na Infra**):
-
-```
-dotnet ef database update --project ./BerthaStore.API
+dotnet ef --startup-project ./BerthaLutzStore.API/BerthaLutzStore.API.csproj  migrations add AllTables -p ./BerthaLutzStore.Infra/BerthaLutzStore.Infra.csproj
 ```
