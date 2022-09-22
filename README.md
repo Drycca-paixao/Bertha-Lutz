@@ -19,7 +19,7 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 
 ## Endpoints
 
-|——————| PEDIDOS | PRODUTOS | USUÁRIOS |
+|—————| PEDIDOS | PRODUTOS | USUÁRIOS |
 |---|------|------|------|
 | Adicionar | `POST/api/Order` | `POST/api/Product` | `POST/api/User` |
 | Atualizar | `PUT/api/Order` | `PUT/api/Product` | `PUT/api/User` |
