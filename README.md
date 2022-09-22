@@ -48,7 +48,7 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 - [Asana](https://app.asana.com/0/1202815787915229/list) para criar uma lista de tarefas (privado);
 - [Trello](https://trello.com/b/4INf7Cre/bertha-lutz-store) para criar lista de tarefas (público);
 - [Visual Paradigm](https://online.visual-paradigm.com/community/share/berthastore) para criar o diagrama de classes;
-- [Google Presentation](https://docs.google.com/presentation/d/1enJGkYUwS0T8osIr7QW2ijDcwnbvtMcVYFphugSm4H0/preview?slide=id.p) para slides de apresentação.
+- [Google Slides](https://docs.google.com/presentation/d/1enJGkYUwS0T8osIr7QW2ijDcwnbvtMcVYFphugSm4H0/preview?slide=id.p) para slides de apresentação.
 
 ---
 
