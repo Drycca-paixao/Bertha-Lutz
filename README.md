@@ -23,9 +23,9 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 |---|------|------|------|
 | Adicionar | `POST/api/Order` | `POST/api/Product` | `POST/api/User` |
 | Atualizar | `PUT/api/Order` | `PUT/api/Product` | `PUT/api/User` |
-| Buscar por Id | `GET/api/Order` | `GET/api/Product` | `GET/api/User` |
+| Buscar | `GET/api/Order` | `GET/api/Product` | `GET/api/User` |
 | Deletar | `DELETE/api/Order/{orderId}` | `DELETE/api/Product/{productId}` | `DELETE/api/User/{userId}` |
-| Listar todos | `GET/api/Order/ListAll` | `GET/api/Product/ListAll` | `GET/api/User/ListAll` |
+| Listar | `GET/api/Order/ListAll` | `GET/api/Product/ListAll` | `GET/api/User/ListAll` |
 
 ## Pacotes e ferramentas
 
