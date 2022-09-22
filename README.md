@@ -72,3 +72,7 @@ CREATE DATABASE [BerthaLutzStore];
 ```
 dotnet ef --startup-project ./BerthaLutzStore.API/BerthaLutzStore.API.csproj  migrations add AllTable -p ./BerthaLutzStore.Infra/BerthaLutzStore.Infra.csproj
 ```
+
+### Outros modelos de configuração do BD
+
+- [Connections Strings](https://www.connectionstrings.com)
