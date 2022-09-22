@@ -19,17 +19,17 @@ Este projeto se refere ao módulo de backend do Bootcamp ConstruDelas 2022. Foi 
 
 ## Endpoints
 
-- GET/api/Order
+- POST/api/Order
 - PUT/api/Order
 - GET/api/Order
 - DELETE/api/Order/{orderId}
 - GET/api/Order/ListAll
-- GET/api/Product
+- POST/api/Product
 - PUT/api/Product
 - GET/api/Product
 - DELETE/api/Product/{productId}
 - GET/api/Product/ListAll
-- GET/api/User
+- POST/api/User
 - PUT/api/User
 - GET/api/User
 - DELETE/api/User/{userId}
